@@ -1,18 +1,45 @@
 plugins {
     id 'java'
+    id 'org.springframework.boot' version('3.0.6')
+    id 'io.spring.dependency-management' version('1.1.0')
+    id 'io.qameta.allure' version('2.11.2')
 }
 
-group 'ru.talykov'
+group 'ru.talykov.spring'
 version '1.0-SNAPSHOT'
-sourceCompatibility = '18'
+sourceCompatibility = JavaVersion.VERSION_18
+targetCompatibility = JavaVersion.VERSION_18
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    // Spring
+    implementation 'org.springframework.boot:spring-boot-starter-test:3.0.6'
+    implementation 'org.springframework.cloud:spring-cloud-context:4.0.2'
+
+    // Spring feign
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:4.0.2'
+    implementation 'io.github.openfeign:feign-core:12.3'
+
+    // Json
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    // Junit
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    testImplementation 'org.projectlombok:lombok:1.18.26'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.26'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    //Allure
+    //testImplementation 'io.qameta.allure:allure-junit5:2.21.0'
+
+    // Asserts
+    testImplementation 'org.assertj:assertj-core:3.24.2'
 }
 
 test {

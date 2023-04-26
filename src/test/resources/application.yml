@@ -1,0 +1,29 @@
+logging:
+  level:
+    ru.talykov.spring.testservice.api.rest.TestServiceClient: DEBUG
+
+test-service:
+  url: http://127.0.0.1
+  port: 80
+
+mock:
+  url: http://127.0.0.1
+  port: 81
+  test-path-1: /test-path-1
+  test-path-2: /test-path-2
+
+feign.client.config.default.loggerLevel: full
+
+spring:
+  cloud:
+    openfeign:
+      autoconfiguration:
+        jackson:
+          enabled: true
+      client:
+        config:
+          test-service:
+            url: http://127.0.0.1
+            connectTimeout: 60000
+            readTimeout: 60000
+            loggerLevel: FULL
