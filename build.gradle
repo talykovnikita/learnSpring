@@ -36,7 +36,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
 
     //Allure
-    //testImplementation 'io.qameta.allure:allure-junit5:2.21.0'
+    testImplementation 'io.qameta.allure:allure-junit5:2.22.0'
 
     // Asserts
     testImplementation 'org.assertj:assertj-core:3.24.2'

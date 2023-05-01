@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import ru.talykov.spring.testservice.api.models.responses.IndexResponse;
 
 @FeignClient(name = "test-service")
-public interface TestServiceClient {
+public interface TestServiceApi {
     @GetMapping(value = "/", consumes = "application/json", produces = "application/json")
     IndexResponse getIndex();
 

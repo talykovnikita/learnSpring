@@ -1,6 +1,4 @@
-logging:
-  level:
-    ru.talykov.spring.testservice.api.rest.TestServiceClient: DEBUG
+logging.level.ru.talykov.spring.testservice.api.rest.TestServiceClient: DEBUG
 
 test-service:
   url: http://127.0.0.1
@@ -12,7 +10,10 @@ mock:
   test-path-1: /test-path-1
   test-path-2: /test-path-2
 
-feign.client.config.default.loggerLevel: full
+data-base:
+  url:
+  user: example_user
+  password: example_password
 
 spring:
   cloud:
@@ -24,6 +25,4 @@ spring:
         config:
           test-service:
             url: http://127.0.0.1
-            connectTimeout: 60000
-            readTimeout: 60000
             loggerLevel: FULL
