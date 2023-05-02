@@ -1,5 +1,6 @@
 package ru.talykov.spring.aspects;
 
+import com.google.gson.Gson;
 import io.qameta.allure.Allure;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -14,6 +15,8 @@ import java.util.Arrays;
 @Component
 public class AllureAspects {
 
+    Gson gson = new Gson();
+
     @Pointcut("execution(public * ru.talykov.spring.testservice.api.rest.TestServiceApi..*(..))")
     private void allRestMethods(){}
 
@@ -21,11 +24,11 @@ public class AllureAspects {
     public Object attachRestRequestAndResponse(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         proceedingJoinPoint.getSignature();
 
-        Allure.addAttachment("REST request: ", "text/plain", Arrays.toString(proceedingJoinPoint.getArgs()));
+        Allure.addAttachment("Request", "text/json", gson.toJson(Arrays.toString(proceedingJoinPoint.getArgs())));
 
         var result = proceedingJoinPoint.proceed();
 
-        Allure.addAttachment("REST response: ", "text/plain", result.toString());
+        Allure.addAttachment("Response", "text/json", gson.toJson(result));
 
         return result;
     }
