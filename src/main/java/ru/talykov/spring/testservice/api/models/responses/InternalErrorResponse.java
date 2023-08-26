@@ -5,13 +5,15 @@ import io.qameta.allure.internal.shadowed.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Map;
 
 @Data
 @Builder
 @AllArgsConstructor
-public class IndexResponse {
+@NoArgsConstructor
+public class InternalErrorResponse {
     @SerializedName("request_headers")
     @JsonProperty("request_headers")
     Map<String, String> requestHeaders;
@@ -20,7 +22,7 @@ public class IndexResponse {
     @JsonProperty("request_method")
     String requestMethod;
 
-    @SerializedName("status")
     @JsonProperty("status")
+    @SerializedName("status")
     String status;
 }

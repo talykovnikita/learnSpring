@@ -17,8 +17,9 @@ public class AllureAspects {
 
     Gson gson = new Gson();
 
-    @Pointcut("execution(public * ru.talykov.spring.testservice.api.rest.TestServiceApi..*(..))")
-    private void allRestMethods(){}
+    @Pointcut("execution(public * ru.talykov.spring.testservice.api.rest.api.TestServiceApi..*(..))")
+    private void allRestMethods() {
+    }
 
     @Around("allRestMethods()")
     public Object attachRestRequestAndResponse(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {

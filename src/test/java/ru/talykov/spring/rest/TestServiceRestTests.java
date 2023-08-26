@@ -7,8 +7,14 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.http.HttpStatus;
 import ru.talykov.spring.shared.AbstractTest;
+import ru.talykov.spring.testservice.api.models.responses.IndexResponse;
+import ru.talykov.spring.testservice.api.models.responses.InternalErrorResponse;
+import ru.talykov.spring.testservice.api.rest.errors.ErrorResponseException;
 import ru.talykov.spring.testservice.enums.StatusEnum;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @Epic("Spring examples")
 @Feature("REST")
@@ -19,8 +25,8 @@ class TestServiceRestTests extends AbstractTest {
     @DisplayName("Check GET index response")
     @Description("Check GET response of index handler")
     void checkGetIndexResponseTest() {
-        var actualResponse = testServiceApiClient.getIndex();
-        var expectedResponse = testServiceManager.buildIndexResponse(HttpMethod.GET, StatusEnum.WORKING);
+        IndexResponse actualResponse = testServiceApiClient.getIndex();
+        IndexResponse expectedResponse = testServiceManager.buildIndexResponse(HttpMethod.GET, StatusEnum.WORKING);
 
         testServiceVerifier.assertIndexResponseIgnoreHeadersField(expectedResponse, actualResponse);
     }
@@ -33,5 +39,20 @@ class TestServiceRestTests extends AbstractTest {
         var expectedResponse = testServiceManager.buildIndexResponse(HttpMethod.POST, StatusEnum.WORKING);
 
         testServiceVerifier.assertIndexResponseIgnoreHeadersField(expectedResponse, actualResponse);
+    }
+
+    @Test
+    @DisplayName("Check GET internal-error-page response")
+    @Description("Check GET response of internal-error-page handler")
+    void checkGetInternalErrorResponseTest() {
+
+        ErrorResponseException actualException = assertThrows(ErrorResponseException.class, () -> {
+            testServiceApiClient.getInternalErrorPage();
+        });
+
+        InternalErrorResponse expectedResponse = testServiceManager.buildInternalErrorPageResponse(HttpMethod.GET, StatusEnum.BROKEN);
+
+        testServiceVerifier.assertInternalErrorResponse(expectedResponse, actualException);
+        testServiceVerifier.assertStatusCode(actualException.getStatusCode(), HttpStatus.INTERNAL_SERVER_ERROR.value());
     }
 }

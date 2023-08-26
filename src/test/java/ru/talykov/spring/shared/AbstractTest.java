@@ -9,7 +9,7 @@ import ru.talykov.spring.configurations.MockConfiguration;
 import ru.talykov.spring.configurations.TestServiceConfiguration;
 import ru.talykov.spring.testservice.api.verifiers.TestServiceConfigurationVerifier;
 import ru.talykov.spring.testservice.api.verifiers.TestServiceVerifier;
-import ru.talykov.spring.testservice.api.rest.TestServiceApiClient;
+import ru.talykov.spring.testservice.api.rest.clients.TestServiceApiClient;
 import ru.talykov.spring.testservice.managers.TestServiceManager;
 
 @SpringBootTest
