@@ -4,8 +4,8 @@ import io.qameta.allure.Step;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.api.recursive.comparison.RecursiveComparisonConfiguration;
 import org.springframework.stereotype.Component;
-import ru.talykov.spring.testservice.api.models.responses.IndexResponse;
-import ru.talykov.spring.testservice.api.models.responses.InternalErrorResponse;
+import ru.talykov.spring.testservice.api.models.responses.index.IndexResponse;
+import ru.talykov.spring.testservice.api.models.responses.internalError.InternalErrorResponse;
 import ru.talykov.spring.testservice.api.rest.errors.ErrorResponseException;
 
 @Component

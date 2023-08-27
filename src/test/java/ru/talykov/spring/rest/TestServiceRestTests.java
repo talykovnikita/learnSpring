@@ -9,10 +9,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import ru.talykov.spring.shared.AbstractTest;
-import ru.talykov.spring.testservice.api.models.responses.IndexResponse;
-import ru.talykov.spring.testservice.api.models.responses.InternalErrorResponse;
+import ru.talykov.spring.testservice.api.models.responses.index.IndexResponse;
+import ru.talykov.spring.testservice.api.models.responses.internalError.InternalErrorResponse;
 import ru.talykov.spring.testservice.api.rest.errors.ErrorResponseException;
-import ru.talykov.spring.testservice.enums.StatusEnum;
+import ru.talykov.spring.testservice.api.models.responses.shared.enums.StatusEnum;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

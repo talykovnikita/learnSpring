@@ -3,9 +3,9 @@ package ru.talykov.spring.testservice.managers;
 import feign.Request.HttpMethod;
 import io.qameta.allure.Step;
 import org.springframework.stereotype.Component;
-import ru.talykov.spring.testservice.api.models.responses.IndexResponse;
-import ru.talykov.spring.testservice.api.models.responses.InternalErrorResponse;
-import ru.talykov.spring.testservice.enums.StatusEnum;
+import ru.talykov.spring.testservice.api.models.responses.index.IndexResponse;
+import ru.talykov.spring.testservice.api.models.responses.internalError.InternalErrorResponse;
+import ru.talykov.spring.testservice.api.models.responses.shared.enums.StatusEnum;
 
 @Component
 public class TestServiceManager {

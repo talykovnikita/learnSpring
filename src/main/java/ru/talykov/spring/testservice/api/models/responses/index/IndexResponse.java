@@ -1,4 +1,4 @@
-package ru.talykov.spring.testservice.api.models.responses;
+package ru.talykov.spring.testservice.api.models.responses.index;
 
 import com.google.gson.annotations.SerializedName;
 import io.qameta.allure.internal.shadowed.jackson.annotation.JsonProperty;

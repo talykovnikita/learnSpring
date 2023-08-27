@@ -3,7 +3,7 @@ package ru.talykov.spring.testservice.api.rest.errors;
 import feign.Response;
 import feign.codec.ErrorDecoder;
 import io.qameta.allure.internal.shadowed.jackson.databind.ObjectMapper;
-import ru.talykov.spring.testservice.api.models.responses.InternalErrorResponse;
+import ru.talykov.spring.testservice.api.models.responses.internalError.InternalErrorResponse;
 
 import java.io.IOException;
 import java.io.InputStream;

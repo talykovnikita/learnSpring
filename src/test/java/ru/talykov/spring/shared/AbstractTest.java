@@ -11,6 +11,7 @@ import ru.talykov.spring.testservice.api.verifiers.TestServiceConfigurationVerif
 import ru.talykov.spring.testservice.api.verifiers.TestServiceVerifier;
 import ru.talykov.spring.testservice.api.rest.clients.TestServiceApiClient;
 import ru.talykov.spring.testservice.managers.TestServiceManager;
+import ru.talykov.spring.testservice.postgres.repository.UsersRepository;
 
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
@@ -24,9 +25,13 @@ abstract public class AbstractTest {
     protected TestServiceConfiguration testServiceConfiguration;
 
     /* Mountebank mock */
-    // TODO: Создать клиента mountebank
+    // TODO: Create client mountebank
 
-    /* Data providers */
+    /* Database */
+    @Autowired
+    protected UsersRepository usersRepository;
+
+    /* Expected test data providers */
     @Autowired
     protected TestServiceManager testServiceManager;
 

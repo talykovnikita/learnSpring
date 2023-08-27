@@ -3,7 +3,7 @@ package ru.talykov.spring.testservice.api.rest.api;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import ru.talykov.spring.testservice.api.models.responses.IndexResponse;
+import ru.talykov.spring.testservice.api.models.responses.index.IndexResponse;
 import ru.talykov.spring.configurations.TestServiceClientConfiguration;
 
 @FeignClient(name = "test-service", configuration = TestServiceClientConfiguration.class)

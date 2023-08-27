@@ -1,4 +1,4 @@
-package ru.talykov.spring.testservice.enums;
+package ru.talykov.spring.testservice.api.models.responses.shared.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
