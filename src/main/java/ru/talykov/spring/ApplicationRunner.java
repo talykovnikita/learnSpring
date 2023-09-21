@@ -2,20 +2,17 @@ package ru.talykov.spring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cloud.openfeign.EnableFeignClients;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-
+import ru.talykov.spring.postgres.repository.UsersRepository;
 
 @SpringBootApplication
 @EnableFeignClients
-@EnableJpaRepositories("ru.talykov.spring.testservice.postgres.repository")
-@EntityScan("ru.talykov.spring.testservice.postgres.entity")
 public class ApplicationRunner {
 
+  public static void main(String[] args) {
 
-    public static void main(String[] args) {
-
-        SpringApplication.run(ApplicationRunner.class, args);
-    }
+    var ctx = SpringApplication.run(ApplicationRunner.class, args);
+    UsersRepository ur = ctx.getBean(UsersRepository.class);
+    System.out.println(ur.count());
+  }
 }

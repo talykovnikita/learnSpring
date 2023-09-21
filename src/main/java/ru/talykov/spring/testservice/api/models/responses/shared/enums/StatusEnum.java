@@ -6,8 +6,9 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum StatusEnum {
+  WORKING("Is working!"),
+  NOT_FOUND("Not found!"),
+  BROKEN("Broken!");
 
-    WORKING("Is working!"), NOT_FOUND("Not found!"), BROKEN("Broken!");
-
-    private final String status;
+  private final String status;
 }

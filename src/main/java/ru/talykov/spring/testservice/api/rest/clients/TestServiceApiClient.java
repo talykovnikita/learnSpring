@@ -9,17 +9,20 @@ import ru.talykov.spring.testservice.api.rest.api.TestServiceApi;
 @Component
 public class TestServiceApiClient {
 
-    @Autowired
-    TestServiceApi testServiceApi;
+  @Autowired TestServiceApi testServiceApi;
 
-    @Step("Make GET index request")
-    public IndexResponse getIndex() {return testServiceApi.getIndex();}
+  @Step("Make GET index request")
+  public IndexResponse getIndex() {
+    return testServiceApi.getIndex();
+  }
 
-    @Step("Make GET internal-error-page request")
-    public IndexResponse getInternalErrorPage() {return testServiceApi.getInternalErrorPage();}
+  @Step("Make GET internal-error-page request")
+  public IndexResponse getInternalErrorPage() {
+    return testServiceApi.getInternalErrorPage();
+  }
 
-    @Step("Make POST index request")
-    public IndexResponse postIndex() {
-        return testServiceApi.postIndex();
-    }
+  @Step("Make POST index request")
+  public IndexResponse postIndex() {
+    return testServiceApi.postIndex();
+  }
 }

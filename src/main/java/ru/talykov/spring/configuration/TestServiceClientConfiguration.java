@@ -1,4 +1,4 @@
-package ru.talykov.spring.configurations;
+package ru.talykov.spring.configuration;
 
 import feign.codec.ErrorDecoder;
 import org.springframework.context.annotation.Bean;
@@ -8,8 +8,8 @@ import ru.talykov.spring.testservice.api.rest.errors.ErrorResponseDecoder;
 @Configuration
 public class TestServiceClientConfiguration {
 
-    @Bean
-    public ErrorDecoder errorDecoder() {
-        return new ErrorResponseDecoder();
-    }
+  @Bean
+  public ErrorDecoder errorDecoder() {
+    return new ErrorResponseDecoder();
+  }
 }

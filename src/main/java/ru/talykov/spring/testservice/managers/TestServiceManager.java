@@ -10,21 +10,22 @@ import ru.talykov.spring.testservice.api.models.responses.shared.enums.StatusEnu
 @Component
 public class TestServiceManager {
 
-    @Step("Build response of index method")
-    public IndexResponse buildIndexResponse(HttpMethod httpMethod, StatusEnum statusEnum){
+  @Step("Build response of index method")
+  public IndexResponse buildIndexResponse(HttpMethod httpMethod, StatusEnum statusEnum) {
 
-        return IndexResponse.builder()
-                .requestMethod(httpMethod.name())
-                .status(statusEnum.getStatus())
-                .build();
-    }
+    return IndexResponse.builder()
+        .requestMethod(httpMethod.name())
+        .status(statusEnum.getStatus())
+        .build();
+  }
 
-    @Step("Build response of internal-error-page method")
-    public InternalErrorResponse buildInternalErrorPageResponse(HttpMethod httpMethod, StatusEnum statusEnum){
+  @Step("Build response of internal-error-page method")
+  public InternalErrorResponse buildInternalErrorPageResponse(
+      HttpMethod httpMethod, StatusEnum statusEnum) {
 
-        return InternalErrorResponse.builder()
-                .requestMethod(httpMethod.name())
-                .status(statusEnum.getStatus())
-                .build();
-    }
+    return InternalErrorResponse.builder()
+        .requestMethod(httpMethod.name())
+        .status(statusEnum.getStatus())
+        .build();
+  }
 }
